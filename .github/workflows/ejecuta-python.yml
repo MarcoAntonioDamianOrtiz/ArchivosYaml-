@@ -7,6 +7,8 @@ jobs:
     steps:
       - run: echo "Inicia python"
       - run: python -version
+      - run: Chack out repository code
+      - uses: actions/checkout@v6
       - run: ls -al
       - run: python app.py
       
