@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Inicia Actions"
-      - run: python -version
+      - run: python --version
       - run: Chack out repository code
       - uses: actions/checkout@v6
       - run: ls -al
