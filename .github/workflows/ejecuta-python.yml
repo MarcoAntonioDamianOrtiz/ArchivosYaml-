@@ -2,10 +2,10 @@ name: Pruba ejecucion de Script en python
 run-name: Script python en Ubuntu
 on: [push]
 jobs:
-  Ejecuta-python:
+  Ejecuta-script-python:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Inicia python"
+      - run: echo "Inicia Actions"
       - run: python -version
       - run: Chack out repository code
       - uses: actions/checkout@v6
