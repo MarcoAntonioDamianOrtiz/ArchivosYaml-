@@ -1,14 +1,13 @@
-name: Pruba ejecucion de Script en python
-run-name: Script python en Ubuntu
+name: Prueba ejecución de Script
+run-name: Script de Python en Ununtu
 on: [push]
 jobs:
-  Ejecuta-script-python:
+  ejecuta-script-python:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Inicia Actions"
       - run: python --version
-      - run: Check out repository code
-      - uses: actions/checkout@v6
+      - name: Check out repository code
+        uses: actions/checkout@v6
       - run: ls -al
       - run: python app.py
-      
