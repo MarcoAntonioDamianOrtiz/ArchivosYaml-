@@ -1,28 +1,35 @@
 name: Expression
 run-name: Practicando con expresiones
-on:
+"on":
   workflow_dispatch:
     inputs:
       edad:
         description: 'Edad'
         required: true
-        type: number
-        default: 18
+        default: '20'
+        type: string
       nombre:
-        description: 'Nombre'
+        description: 'Tu nombre'
         required: true
         default: 'Marco'
         type: string
 jobs:
   mayor:
-    if: ${{ inputs.edad >= 18 }}
+    if: ${{ fromJSON(inputs.edad) >= 18 }}
     runs-on: ubuntu-latest
     steps:
       - name: Correr script
         run: echo ${{ inputs.nombre }} es mayor de edad
   menor:
-    if: ${{ inputs.edad < 18 }}
+    if: ${{ fromJSON(inputs.edad) < 18 }}
     runs-on: ubuntu-latest
     steps:
       - name: Correr script
         run: echo ${{ inputs.nombre }} es menor de edad
+  ejecuta-python-condicionales:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "EDAD=${{ inputs.edad }}" >> $GITHUB_ENV
+      - run: echo "NAME=${{ inputs.nombre }}" >> $GITHUB_ENV
+      - uses: actions/checkout@v4
+      - run: python condicionales.py
